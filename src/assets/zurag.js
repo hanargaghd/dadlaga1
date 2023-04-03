@@ -1,0 +1,8 @@
+export {default as Zurag1} from "./1.jpg"
+export {default as Zurag2} from "./2.jpg"
+export {default as Zurag3} from "./3.jpg"
+export {default as Zurag4} from "./4.jpg"
+export {default as Zurag5} from "./5.jpg"
+export {default as Zurag6} from "./6.jpg"
+export {default as Zurag7} from "./7.jpg"
+export {default as Zurag8} from "./8.jpg"

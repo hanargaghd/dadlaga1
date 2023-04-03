@@ -1,7 +1,18 @@
-import '@/styles/globals.css'
+import '@/styles/globals.css';
+import { Session } from 'next-auth';
+import { SessionProvider } from 'next-auth/react';
+import type { AppProps } from 'next/app';
+import { useState } from "react"
 
-import type { AppProps } from 'next/app'
+export default function App({ 
+   Component, 
+   pageProps: { session, ...pageProps },
+ }: AppProps<{ session: Session }>) {
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
 
-export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
-}
+  return (
+    <SessionProvider session={session}>
+      <Component {...pageProps} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
+    </SessionProvider>
+  );
+} 
