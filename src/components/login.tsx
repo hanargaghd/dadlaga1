@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Router from 'next/router';
 import Link from 'next/link';
 import Swal from 'sweetalert2';
-import { signIn, useSession } from 'next-auth/react'
+import { signIn, useSession, signOut } from 'next-auth/react'
 
 export default function Login() {
   const [email, setEmail] = useState('');
@@ -47,7 +47,14 @@ export default function Login() {
   }
 
   if (session) {
-    return <div className='pt-20 text-[2rem]'>You are already logged in</div>
+    return <div className='pt-20 text-[2rem]'>
+      <div>
+       You are already logged in
+      </div>
+      <div>
+        <button className='border rounded-lg bg-teal-300 py-2 px-4' onClick={()=>signOut()}>Logout</button>
+      </div>
+      </div>
   }
   else return (
   <div className='flex justify-center items-center'> 
